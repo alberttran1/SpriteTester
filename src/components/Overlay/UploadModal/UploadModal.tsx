@@ -29,15 +29,18 @@ const UploadModal = (props: {addSprite : (data: SpriteData) => void}) => {
     
     const onDropSpriteSheet = useCallback((acceptedFiles : File[]) => {
         console.log(acceptedFiles)
-        const multiDrop = acceptedFiles.length >= 2;
+        // const multiDrop = acceptedFiles.length >= 2;
+        
         setImageFiles(acceptedFiles.map((file) => {
             return {data: file, url: URL.createObjectURL(file)}
         }))
-        if(multiDrop) {
-            setModalState("MULTIIMAGE");
-        } else {
-            setModalState("SPRITESHEET")
-        }
+
+        setModalState("MULTIIMAGE")
+        // if(multiDrop) {
+        //     setModalState("MULTIIMAGE");
+        // } else {
+        //     setModalState("SPRITESHEET")
+        // }
     }, [])
 
 

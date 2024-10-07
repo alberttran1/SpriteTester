@@ -25,7 +25,7 @@ const ControlsScreen = (props: ControlsScreenProps) => {
     const [direction, _setDirection] = useState<"RIGHT" | "LEFT">("RIGHT");
 
     useEffect(() => {
-        setValid(animationMap.has("IDLE"))
+        setValid(animationMap.has("IDLE") && animationMap.has("RUN") && animationMap.has("JUMP") )
     },[animationMap])
 
 
@@ -138,7 +138,7 @@ const ControlsScreen = (props: ControlsScreenProps) => {
             <div className='w-full h-[80%] text-neutral-500 overflow-auto relative flex justify-center'>
 
 
-                <div className='flex items-center h-full justify-around w-[80%]'>
+                <div className='flex items-center h-full justify-center  w-[80%] gap-[14vw]'>
                     <div className="flex flex-col h-full items-start justify-center gap-6">
                         <div className="flex gap-6">
                             <div className='flex flex-col gap-2 items-center'>
@@ -155,18 +155,18 @@ const ControlsScreen = (props: ControlsScreenProps) => {
 
                             <div className='flex flex-col gap-2 items-center'>
                                 <SpriteDroppable uuid={"RUN"}/>
-                                Walk
+                                Run
                             </div>
                         </div>
                     </div>
 
                     <div className='flex gap-6'>
                         <div className='flex flex-col gap-2 items-center'>
-                            Dash
+                            {"Dash (optional)"}
                             <SpriteDroppable uuid={"DASH"}/>
                         </div>
                         <div className='flex flex-col gap-2 items-center'>
-                            Attack
+                            {"Attack (optional)"}
                             <SpriteDroppable uuid={"ATTACK"}/>
                         </div>
                     </div>
@@ -220,7 +220,7 @@ const ControlsScreen = (props: ControlsScreenProps) => {
                             <HoverCard.Content avoidCollisions>
                                 <HoverCard.Arrow className="fill-white" />
                                 <div className="rounded p-2 w-64 bg-white shadow animate-fadeIn text-neutral-500">
-                                    All states must have images and unique names to continue!
+                                    Must have an Idle, Run, and Jump animation to continue!
                                 </div>
                             </HoverCard.Content>
                         </HoverCard.Portal>
