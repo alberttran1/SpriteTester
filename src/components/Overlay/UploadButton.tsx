@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { useContext, useState } from 'react';
 import { SpriteData, ThemeContext } from '../../App';
 import UploadModal from './UploadModal/UploadModal';
-import { ToastType } from './ToastProvider';
 
 //  object Sprite {
 //     states: states[]
