@@ -62,7 +62,7 @@ export default {
         'fadeOut': 'fadeOut 100ms ease-in;',
         'fadeIn': 'fadeIn 100ms ease-in',
         'fadeInSlow': 'fadeIn 800ms ease-in',
-        'fadeInSlowDelay': 'fadeInDelay 4000ms ease-in',
+        'fadeInSlowDelay': 'fadeInDelay 2000ms ease-in',
 
 
       }
