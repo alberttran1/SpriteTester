@@ -1,12 +1,15 @@
 import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone';
 import * as Dialog from '@radix-ui/react-dialog';
+import { Progress } from '@radix-ui/react-progress';
+
 import { IconUpload } from '@tabler/icons-react';
 import { v4 } from 'uuid';
 import MultiUploadScreen from './MultiUploadScreen';
 import ControlsScreen from './ControlsScreen';
 import { SpriteData } from '../../../App';
 import * as DefaultSprite from "../../../assets/DefaultSprite/index"
+import { DotLoader, FadeLoader } from 'react-spinners';
 
 type ModalState = "UPLOAD" | "SPRITESHEET" | "MULTIIMAGE" | "CONTROLS"
 
@@ -20,6 +23,7 @@ export interface SpriteState {
 const UploadModal = (props: {addSprite : (data: SpriteData) => void}) => {
     const [imageFiles, setImageFiles] = useState<{data: File, url: string}[]>([])
     const [modalState, setModalState] = useState<ModalState>("UPLOAD")
+    const [loading, setLoading] = useState<boolean>(false)
     const [spriteStates, setSpriteStates] = useState<SpriteState[]>([
         {name: "Animation 1", fps: 6, images: [], uuid : v4()},
     ])
@@ -60,7 +64,7 @@ const UploadModal = (props: {addSprite : (data: SpriteData) => void}) => {
             {file: DefaultSprite.run7, name: "run7.jpeg"},
         ]
 
-
+        setLoading(true)
 
         for (const data of defaultImageFiles) {
             let res = await fetch(data.file)
@@ -72,6 +76,7 @@ const UploadModal = (props: {addSprite : (data: SpriteData) => void}) => {
             fArr.push({data: file,url: URL.createObjectURL(file)});
         }
 
+        setLoading(false)
         setImageFiles(fArr)
         setModalState("MULTIIMAGE");
     }
@@ -106,8 +111,14 @@ const UploadModal = (props: {addSprite : (data: SpriteData) => void}) => {
                                             transition-colors cursor-pointer rounded border-dashed`}
                             onClick={(UploadDefaults)}>
                             <div className="flex flex-col gap-2 items-center">
-                                <div className="text-base mt-4 max-w-[75%] text-center">
-                                    Just want to try the app? Click here to use the default sprite package
+                                <div className="text-base mt-4 max-w-[75%] w-60 text-center flex justify-center items-center">
+                                {loading ?
+                                    <FadeLoader/>
+                                :
+                                    <div>
+                                        Just want to try the app? Click here to use the default sprite package
+                                    </div>    
+                                }
                                 </div>
                             </div>
                         </div>
