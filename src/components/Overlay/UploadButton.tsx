@@ -16,7 +16,7 @@ import UploadModal from './UploadModal/UploadModal';
 // }
 
 
-export const UploadButton = (props: {addSprite : (data: SpriteData) => void}) => {
+export const UploadButton = (props: {addSprite : (data: SpriteData) => void, removeBanner : () => void}) => {
     const { theme } = useContext(ThemeContext);
     const [open, setOpen] = useState<boolean>();
 
@@ -28,7 +28,7 @@ export const UploadButton = (props: {addSprite : (data: SpriteData) => void}) =>
     return (
         <Dialog.Root open={open}>
             <Dialog.Trigger asChild>
-                <IconUserPlus size={40}  onClick={() => setOpen(true)} className={clsx(
+                <IconUserPlus size={40}  onClick={() => {setOpen(true); props.removeBanner()}} className={clsx(
                     theme === "dark" && "text-neutral-700 hover:text-neutral-100",
                     theme === "light" && "text-neutral-400 hover:text-neutral-900",
                     "transition-colors cursor-pointer")}/>

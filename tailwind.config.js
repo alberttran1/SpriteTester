@@ -42,6 +42,17 @@ export default {
           '100%': {
             opacity: 1,
           }
+        },
+        fadeInDelay: {
+          '0%': {
+            opacity: 0,
+          },
+          '50%': {
+            opacity: 0,
+          },
+          '100%': {
+            opacity: 1,
+          }
         }
       },
       animation: {
@@ -49,7 +60,11 @@ export default {
         'modalAppear': 'modalAppear 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         'slideIn': 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         'fadeOut': 'fadeOut 100ms ease-in;',
-        'fadeIn': 'fadeIn 100ms ease-in'
+        'fadeIn': 'fadeIn 100ms ease-in',
+        'fadeInSlow': 'fadeIn 800ms ease-in',
+        'fadeInSlowDelay': 'fadeInDelay 4000ms ease-in',
+
+
       }
     },
   },
