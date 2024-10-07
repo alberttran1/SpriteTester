@@ -30,7 +30,7 @@ const UploadModal = (props: {addSprite : (data: SpriteData) => void}) => {
     const onDropSpriteSheet = useCallback((acceptedFiles : File[]) => {
         console.log(acceptedFiles)
         // const multiDrop = acceptedFiles.length >= 2;
-        
+
         setImageFiles(acceptedFiles.map((file) => {
             return {data: file, url: URL.createObjectURL(file)}
         }))
@@ -97,7 +97,7 @@ const UploadModal = (props: {addSprite : (data: SpriteData) => void}) => {
                                             hover:text-neutral-600 hover:border-neutral-600 
                                             transition-colors cursor-pointer rounded border-dashed`}
                                 style={{borderColor: spriteSheetDragActive ? "blue" : 'inherit'}}>
-                            <input {...inputSpriteSheetDrop({accept:"image/*"})} />
+                            <input disabled={loading} {...inputSpriteSheetDrop({accept:"image/*"})} />
                             <div className="flex flex-col gap-2 items-center">
                                 <IconUpload size={64} stroke={1}/>
                                 <div className="text-base mt-4 max-w-[75%] text-center">
