@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { SpriteState } from './UploadModal'
-import { CollisionDetection, DndContext, DragEndEvent, DragOverlay, DragStartEvent, MouseSensor, rectIntersection, useDroppable, useSensor, useSensors } from '@dnd-kit/core'
+import { CollisionDetection, DndContext, DragEndEvent, DragOverlay, DragStartEvent, MouseSensor, rectIntersection, useSensor, useSensors } from '@dnd-kit/core'
 import { Draggable } from '../../Draggable'
 import { snapCenterToCursor } from '@dnd-kit/modifiers'
 import Droppable from '../../Droppable'
@@ -22,7 +22,7 @@ const ControlsScreen = (props: ControlsScreenProps) => {
     const [draggingUuid, setDraggingUuid] = useState<string>();
     const [animationMap, setAnimationMap] = useState<Map<string,SpriteState>>(new Map());
     const [valid, setValid] = useState<boolean>(true);
-    const [direction, setDirection] = useState<"RIGHT" | "LEFT">("RIGHT");
+    const [direction, _setDirection] = useState<"RIGHT" | "LEFT">("RIGHT");
 
     useEffect(() => {
         setValid(animationMap.has("IDLE"))
@@ -83,7 +83,7 @@ const ControlsScreen = (props: ControlsScreenProps) => {
                 return (
                     <Draggable key={`controls_card_${spriteState.uuid}`} id={`${spriteState.uuid}`} data={{uuid:spriteState.uuid}}>
                         <div className={`border rounded shadow p-1 w-[10vh] h-full transition-colors hover:bg-neutral-100`}
-                        onMouseDown={(e) => setDraggingUuid(spriteState.uuid)}>
+                        onMouseDown={() => setDraggingUuid(spriteState.uuid)}>
                             <img className='w-full h-[calc(100%-25px)] opacity-[75%] object-contain' src={imageFiles[spriteState.images[0].index].url}/>
                             <div className="text-neutral-700 text-xs overflow-hidden text-ellipsis text-nowrap text-center flex-1">
                                 {spriteState.name}

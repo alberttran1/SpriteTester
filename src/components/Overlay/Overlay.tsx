@@ -1,6 +1,6 @@
 import { IconUser } from "@tabler/icons-react"
 import clsx from "clsx"
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { SpriteData, ThemeContext } from "../../App";
 import { UploadButton } from "./UploadButton";
 

@@ -1,6 +1,6 @@
 import { useDroppable } from '@dnd-kit/core';
 import clsx from 'clsx';
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 interface DroppableProps {
     uuid: string;

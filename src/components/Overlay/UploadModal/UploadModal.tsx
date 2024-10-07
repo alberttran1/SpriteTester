@@ -23,7 +23,7 @@ const UploadModal = (props: {addSprite : (data: SpriteData) => void}) => {
         {name: "Animation 1", fps: 6, images: [], uuid : v4()},
     ])
     
-    const onDropSpriteSheet = useCallback((acceptedFiles : File[], errors : any[]) => {
+    const onDropSpriteSheet = useCallback((acceptedFiles : File[]) => {
         const multiDrop = acceptedFiles.length >= 2;
         setImageFiles(acceptedFiles.map((file) => {
             return {data: file, url: URL.createObjectURL(file)}

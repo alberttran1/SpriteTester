@@ -23,7 +23,7 @@ const MultiUploadScreen = (props: MultiUploadScreenProps) => {
     const [draggingIndex, setDraggingIndex] = useState<number>(-1)
     const [draggingMain, setDraggingMain] = useState<boolean>(false);
     const [selectedState, setSelectedState] = useState<number>(-1)
-    const [dropPreviewData, setDropPreviewData] = useState<{containerId: String, index: number, active: number}>()
+    const [_dropPreviewData, setDropPreviewData] = useState<{containerId: String, index: number, active: number}>()
     const [selectedIndices,setSelectedIndices] = useState<number[]>([])
     const [anchorSelectedIndices, setAnchorSelectedIndices] = useState<number[]>([])
     const [anchorIndex, setAnchorIndex] = useState<number>(0)
@@ -182,7 +182,7 @@ const MultiUploadScreen = (props: MultiUploadScreenProps) => {
         }
 
         //move
-        const selectedIds = active.data.current?.isMain ? allSelectedIndices : [active.data.current?.index]
+        // const selectedIds = active.data.current?.isMain ? allSelectedIndices : [active.data.current?.index]
 
         const dropStateUuid = over?.data.current?.sortable ? over.data.current.sortable.containerId :  over?.id
 
