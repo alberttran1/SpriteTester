@@ -108,11 +108,11 @@ export const Playground = (props: PlaygroundProps) => {
                     tempInstance.onGround = false;
                 }
                 else if(key === "KeyA" || key === "ArrowLeft") {
-                    tempInstance.moveVec.x -= runSpeed;
+                    tempInstance.moveVec.x = -runSpeed;
                     tempInstance.direction = "LEFT"
                 }
                 else if(key === "KeyD" || key === "ArrowRight") {
-                    tempInstance.moveVec.x += runSpeed
+                    tempInstance.moveVec.x = runSpeed
                     tempInstance.direction = "RIGHT"
                 }
             })
