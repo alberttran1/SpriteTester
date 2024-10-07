@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone';
 import * as Dialog from '@radix-ui/react-dialog';
-import { Progress } from '@radix-ui/react-progress';
 
 import { IconUpload } from '@tabler/icons-react';
 import { v4 } from 'uuid';
@@ -9,7 +8,7 @@ import MultiUploadScreen from './MultiUploadScreen';
 import ControlsScreen from './ControlsScreen';
 import { SpriteData } from '../../../App';
 import * as DefaultSprite from "../../../assets/DefaultSprite/index"
-import { DotLoader, FadeLoader } from 'react-spinners';
+import { FadeLoader } from 'react-spinners';
 
 type ModalState = "UPLOAD" | "SPRITESHEET" | "MULTIIMAGE" | "CONTROLS"
 
